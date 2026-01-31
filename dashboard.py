@@ -12,14 +12,14 @@ st.set_page_config(page_title="통합 주문 데이터 분석 대시보드", lay
 @st.cache_data
 def load_and_process_data():
     # 깃허브 배포 및 로컬 환경 모두 지원하도록 상대 경로 사용
-    file_name = "project1 - preprocessed_data.csv"
+    file_name = "project1-preprocessed_data.csv"
     
     # 1. 현재 폴더에서 먼저 찾기
     if os.path.exists(file_name):
         file_path = file_name
     # 2. 절대 경로 시도 (기존 환경 백업)
-    elif os.path.exists(r"D:\fcicb6\project1 - preprocessed_data.csv"):
-        file_path = r"D:\fcicb6\project1 - preprocessed_data.csv"
+    elif os.path.exists(r"D:\fcicb6\project1-preprocessed_data.csv"):
+        file_path = r"D:\fcicb6\project1-preprocessed_data.csv"
     else:
         return None
     
@@ -178,5 +178,6 @@ with tab4:
 with tab5:
     st.subheader("데이터 미리보기")
     st.dataframe(f_df.sort_values(by='주문일', ascending=False).head(100), use_container_width=True)
+
 
 
